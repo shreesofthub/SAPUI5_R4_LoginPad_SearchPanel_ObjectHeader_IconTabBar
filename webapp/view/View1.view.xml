@@ -1,0 +1,43 @@
+<mvc:View controllerName="r4searchproducthboxvbox.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <headerContent>
+                        <Label id="idLbl4" text="Theme changer"></Label>
+                        <ComboBox id="idCb" items="{/themes}" selectionChange="onSelect">
+                            <c:Item id="idCbI" key="{code}" text="{theme}"/>
+                        </ComboBox>
+                    </headerContent>
+                    <Panel id="idPanel" headerText="Search Products" expandable="true" expanded="true">
+                        <HBox id="idHb1">
+                            <VBox id="idVb1" class="sapUiSmallMargin">
+                                <Label id="idLbl1" text="Product ID"/>
+                                <Input id="idIp1" />
+                            </VBox>
+                            <VBox id="idVb2" class="sapUiSmallMargin">
+                                <Label id="idLbl2" text="Product Name"/>
+                                <Input id="idIp2" />
+                            </VBox>
+                            <VBox id="idVb3" class="sapUiSmallMargin">
+                                <Label id="idLbl3" text="Product Status"/>
+                                <Input id="idIp3" />
+                            </VBox>
+                            <VBox id="idVb4" class="sapUiSmallMargin">
+                                <Label id="idLb4"/>
+                                <Button id="idBtn1" text="Search" type="Emphasized" press="onSearch" icon="sap-icon://reset"/>
+                            </VBox>
+                            <VBox id="idVb5" class="sapUiSmallMargin">
+                                <Label id="idLb5"/>
+                                <Button id="idBtn2" text="Reset" type="Reject" press="onReset" icon="sap-icon://search"/>
+                            </VBox>
+                        </HBox>
+                    </Panel>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
