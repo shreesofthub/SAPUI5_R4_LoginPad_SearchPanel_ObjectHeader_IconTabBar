@@ -1,43 +1,127 @@
 <mvc:View controllerName="r4searchproducthboxvbox.controller.View1"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
-    xmlns:c="sap.ui.core">
-    <Shell id="shell">
-        <App id="app">
-            <pages>
-                <Page id="page" title="{i18n>title}">
-                    <headerContent>
-                        <Label id="idLbl4" text="Theme changer"></Label>
-                        <ComboBox id="idCb" items="{/themes}" selectionChange="onSelect">
-                            <c:Item id="idCbI" key="{code}" text="{theme}"/>
-                        </ComboBox>
-                    </headerContent>
-                    <Panel id="idPanel" headerText="Search Products" expandable="true" expanded="true">
-                        <HBox id="idHb1">
-                            <VBox id="idVb1" class="sapUiSmallMargin">
-                                <Label id="idLbl1" text="Product ID"/>
-                                <Input id="idIp1" />
-                            </VBox>
-                            <VBox id="idVb2" class="sapUiSmallMargin">
-                                <Label id="idLbl2" text="Product Name"/>
-                                <Input id="idIp2" />
-                            </VBox>
-                            <VBox id="idVb3" class="sapUiSmallMargin">
-                                <Label id="idLbl3" text="Product Status"/>
-                                <Input id="idIp3" />
-                            </VBox>
-                            <VBox id="idVb4" class="sapUiSmallMargin">
-                                <Label id="idLb4"/>
-                                <Button id="idBtn1" text="Search" type="Emphasized" press="onSearch" icon="sap-icon://reset"/>
-                            </VBox>
-                            <VBox id="idVb5" class="sapUiSmallMargin">
-                                <Label id="idLb5"/>
-                                <Button id="idBtn2" text="Reset" type="Reject" press="onReset" icon="sap-icon://search"/>
-                            </VBox>
-                        </HBox>
-                    </Panel>
-                </Page>
-            </pages>
-        </App>
-    </Shell>
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:x="sap.uxap">
+    <Page id="page">
+        <customHeader>
+            <Bar id="idBarCH">
+                <contentLeft>
+                    <Button id="idBack" icon="sap-icon://nav-back" press="onBack"></Button>
+                </contentLeft>
+                <contentMiddle>
+                    <Title id="idCHTitle" text="{i18n>title}" width="100%" class="sapMH2FontSize"></Title>
+                </contentMiddle>
+                <contentRight>
+                    <Label id="idSwitchLabel" text="ObjectHeader+IconTabBar/ObjectPageLayout"/>
+                    <Switch id="idSwitch" change="onSwitchChange"></Switch>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <Panel id="idPanel" headerText="Search Products" expandable="true" expanded="true">
+            <HBox id="idHb1">
+                <VBox id="idVb1" class="sapUiSmallMargin">
+                    <Label id="idLbl1" text="Product ID"/>
+                    <Input id="idIp1" />
+                </VBox>
+                <VBox id="idVb2" class="sapUiSmallMargin">
+                    <Label id="idLbl2" text="Product Name"/>
+                    <Input id="idIp2" />
+                </VBox>
+                <VBox id="idVb3" class="sapUiSmallMargin">
+                    <Label id="idLbl3" text="Product Status"/>
+                    <Input id="idIp3" />
+                </VBox>
+                <VBox id="idVb4" class="sapUiSmallMargin">
+                    <Label id="idLb4"/>
+                    <Button id="idBtn1" text="Search" type="Emphasized" press="onSearch" icon="sap-icon://reset"/>
+                </VBox>
+                <VBox id="idVb5" class="sapUiSmallMargin">
+                    <Label id="idLb5"/>
+                    <Button id="idBtn2" text="Reset" type="Reject" press="onReset" icon="sap-icon://search"/>
+                </VBox>
+            </HBox>
+        </Panel>
+        <Panel id="idPanel1" headerText="ObjectHeader and IconTab Filter" expandable="true" expanded="false">
+            <ObjectHeader id="idOH">
+
+            </ObjectHeader>
+            <IconTabBar id="idIconTab">
+                <items>
+                    <IconTabFilter id="idTabFilter1" icon="sap-icon://information">
+                        <f:SimpleForm id="idSF" title="Above Product Supplier Information" layout="ResponsiveGridLayout" labelSpanL="1" labelSpanM="1">
+                            <Label id="idLb6" text="Vendor ID" />
+                            <Text id="idTxt1" text="Ven-20002"/>
+                            <Label id="idLb7" text="Vendor Name" />
+                            <Text id="idTxt2" text="ZenEx Missiles Ltd"/>
+                            <Label id="idLb8" text="Vendor City" />
+                            <Text id="idTxt3" text="Andaman"/>
+                            <Label id="idLb9" text="Contact Number" />
+                            <Text id="idTxt4" text="+71 9876543210"/>
+                        </f:SimpleForm>
+                    </IconTabFilter>
+                    <IconTabFilter id="idTabFilter2" icon="sap-icon://supplier">
+                    </IconTabFilter>
+                    <IconTabFilter id="idTabFilter3" icon="sap-icon://attachment">
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </Panel>
+        <Panel id="idPanel2" headerText="ObjectPageLayout" expandable="true">
+            <x:ObjectPageLayout id="idOpL" upperCaseAnchorBar="false">
+                <x:headerTitle>
+                    <x:ObjectPageHeader id="idOpH" objectTitle="Employee Details"/>
+                </x:headerTitle>
+                <x:headerContent>
+                    <ObjectAttribute id="idOa" text="Employee Id-735"/>
+                    <ObjectAttribute id="idOa1" text="Sridhar Bollabathula"></ObjectAttribute>
+                </x:headerContent>
+                <x:sections>
+                    <x:ObjectPageSection id="idSec1" title="Employee Personnel Information" >
+                        <x:ObjectPageSubSection id="idSubSec1" mode="Expanded">
+                            <f:SimpleForm id="idSF3" layout="ResponsiveGridLayout" labelSpanL="2" emptySpanL="7" editable="false">
+                                <f:content>
+                                    <Label id="idL1" text="Employee ID"></Label>
+                                    <Text id="idT1" text="753"></Text>
+                                    <Label id="idL2" text="Employee Surname"></Label>
+                                    <Text id="idT2" text="Bollabathula"></Text>
+                                    <Label id="idL3" text="Employee Name"></Label>
+                                    <Text id="idT3" text="Sridhar"></Text>
+                                </f:content>
+                            </f:SimpleForm>
+                        </x:ObjectPageSubSection>
+                    </x:ObjectPageSection>
+                    <x:ObjectPageSection id="idSec2" title="Employee Skills" titleUppercase="false">
+                        <x:ObjectPageSubSection id="idSubSec2" mode="Expanded">
+                            <f:SimpleForm id="idSF4" layout="ResponsiveGridLayout" labelSpanL="2" emptySpanL="7" editable="false">
+                                <f:content>
+                                    <Label id="idL4" text="Employee ID"></Label>
+                                    <Text id="idT4" text="753"></Text>
+                                    <Label id="idL5" text="Employee Surname"></Label>
+                                    <Text id="idT5" text="Bollabathula"></Text>
+                                    <Label id="idL6" text="Employee Name"></Label>
+                                    <Text id="idT6" text="Sridhar"></Text>
+                                </f:content>
+                            </f:SimpleForm>
+                        </x:ObjectPageSubSection>
+                    </x:ObjectPageSection>
+                    <x:ObjectPageSection id="idSec3" title="Employee Contact Details">
+                        <x:ObjectPageSubSection id="idSubSec3" mode="Expanded">
+                            <f:SimpleForm id="idSF5" layout="ResponsiveGridLayout" labelSpanL="2" emptySpanL="7" editable="false">
+                                <f:content>
+                                    <Label id="idL7" text="Employee ID"></Label>
+                                    <Text id="idT7" text="753"></Text>
+                                    <Label id="idL8" text="Employee Surname"></Label>
+                                    <Text id="idT8" text="Bollabathula"></Text>
+                                    <Label id="idL9" text="Employee Name"></Label>
+                                    <Text id="idT9" text="Sridhar"></Text>
+                                </f:content>
+                            </f:SimpleForm>
+                        </x:ObjectPageSubSection>
+                    </x:ObjectPageSection>
+                </x:sections>
+            </x:ObjectPageLayout>
+        </Panel>
+    </Page>
 </mvc:View>

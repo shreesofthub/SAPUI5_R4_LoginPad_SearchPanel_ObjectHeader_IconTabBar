@@ -1,0 +1,26 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" controllerName="r4searchproducthboxvbox.controller.login"
+    xmlns:c="sap.ui.core">
+    <Page id="idLoginPage" title="Vendor Login">
+        <headerContent>
+            <Label id="idLbl4" text="Theme changer" ></Label>
+            <ComboBox id="idCb" items="{/themes}" selectionChange="onSelect">
+                <c:Item id="idCbI" key="{code}" text="{theme}"/>
+            </ComboBox>
+        </headerContent>
+        <FlexBox id="idFBox" alignItems="Center" justifyContent="Center" height="100%">
+            <VBox id="loginVBox">
+                <Input id="idUser" placeholder="User ID" class="sapUiSmallMarginBottom"/>
+                <Input id="isPass" placeholder="Password" type="Password"/>
+                <Label id="idLang" text="Language"/>
+                <ComboBox id="idLangBox" items="{}" width="250px" placeholder="Choose Language" class="sapUiSmallMarginBottom">
+                    <c:Item id="idLangItem" text="{}" key="{}"/>
+                </ComboBox>
+                <Input id="idClient" placeholder="Client" class="sapUiSmallMarginBottom"/>
+                <Button id="idLoginButton" type="Emphasized" text="Log on" press="onLogon" width="250px"/>
+                <Button id="idchangePass" type="Transparent" text="change Password" press="onPassChange"/>
+            </VBox>
+
+        </FlexBox>
+    </Page>
+</mvc:View>

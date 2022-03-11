@@ -1,9 +1,10 @@
 sap.ui.define([
-        "sap/ui/core/UIComponent",
-        "sap/ui/Device",
-        "r4searchproducthboxvbox/model/models"
-    ],
-    function (UIComponent, Device, models) {
+    "sap/ui/core/UIComponent",
+    "sap/ui/Device",
+    "r4searchproducthboxvbox/model/models",
+    "sap/ui/core/routing/History"
+],
+    function (UIComponent, Device, models, History) {
         "use strict";
 
         return UIComponent.extend("r4searchproducthboxvbox.Component", {
@@ -25,7 +26,18 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+                // Back Functionality using History
+                this.getBack();
+            },
+            getBack: function () {
+                var prevHash =  History.getInstance().getPreviousHash();
+                if (prevHash) {
+                    history.go(-1);
+                } else {
+                this.getRouter().navTo("default");                    
+                }
             }
+
         });
     }
 );
